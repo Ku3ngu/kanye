@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
 
 <head>
@@ -15,11 +11,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class = "body">
     <div class="container">
         <div class="quote"></div>
+        <div class="ddg">
+            <input class="search" onkeypress="handle(event)" placeholder = "Search DuckDuckGo"/>
+            <button type=button onclick="search();" class="button">Search</button>
+        </div>
+        <div class="links"></div>
     </div>
+
+    <textarea rows = "5" cols = "80" class = "notes" onkeypress="autosave(event)"></textarea>
+    <button type=button onclick="save();"  class="button btn">Save Note</button>
+
+
+
+
     <script src="main.js" async defer></script>
+    <script>
+        function handle(e) { if (e.keyCode === 13) { e.preventDefault(); search(); } }
+        function autosave(e) { if (e.keyCode === 13) { e.preventDefault(); save(); } }
+    </script>
 </body>
 
 </html>
